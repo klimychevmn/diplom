@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage[normalem]{ulem}
+\usepackage{ccaption}\captiondelim{. }
+\usepackage{remreset}
+\usepackage{graphicx}\graphicspath{{pictures/}}
+\usepackage[14pt]{extsizes}
+
+\usepackage{xcolor}
+\renewcommand{\ULthickness}{1pt}
+\newcommand\bad{\bgroup\markoverwith{\textcolor{red}{\rule[.5ex]{5pt}{1pt}}}\ULon}
+\newcommand\rmk[1]{\textcolor{red}{#1}}
+
+\usepackage[margin=2cm,left=3cm,includefoot]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\parindent=1.25cm
+\newcommand{\chapters}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+\def\labelitemi{---}
+\def\labelitemii{---}
+\lstset{columns=fullflexible,extendedchars=true,showstringspaces=false}
+
+\frenchspacing
+\clubpenalty=10000
+\widowpenalty=10000
+\frenchspacing
+
+\usepackage{caption} % подписи к таблицам в формате ГОСТ
+\DeclareCaptionFormat{GOSTtable}{#2#1\\#3}
+\DeclareCaptionLabelSeparator{fill}{\hfill}
+\DeclareCaptionLabelFormat{fullparents}{\bothIfFirst{#1}{~}#2}
+\captionsetup[table]{
+     format=GOSTtable,
+     font={normalsize},
+     labelformat=fullparents,
+     labelsep=fill,
+     labelfont=bf,
+     justification=centering,
+     singlelinecheck=false
+     }
+     
+\DeclareCaptionLabelFormat{gostfigure}{Рис. #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost,labelfont=bf}
+\captionsetup*[figure]{labelformat=gostfigure}
+
+% TODO: Appendix head style
+% TODO: Table layout
+% TODO: Содержание, Список использованных источников
+
+\makeatletter
+% Chapter heads
+\def\@makechapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \huge \bfseries%
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \thechapter \quad
+    \fi%
+    #1\par\nobreak
+    \vskip 20\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+% Points in reference labels
+\renewcommand{\@biblabel}[1]{#1.\hfill}
+% Figure enumeration
+\@removefromreset{figure}{chapter}
+\renewcommand{\thefigure}{\@arabic\c@figure}
+\makeatother
+
+\begin{document}
+\def\contentsname{Содержание}
+\input{title}
+\tableofcontents
+\input{introduction}
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+\input{conclusion}
+\input{bibliography}
+\input{appendix}
+\input{referat}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-master: t
+%%% End: 

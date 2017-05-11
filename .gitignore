@@ -1,0 +1,11 @@
+syntax: glob
+*~
+*.dvi
+diploma.pdf
+*.log
+*.aux
+*.toc
+*.tfm
+*.600pk
+*.swp
+auto
