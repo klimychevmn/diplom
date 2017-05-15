@@ -3,8 +3,8 @@
 
 $$ \left\{
 \begin{aligned}
-   u \left((\frac{\alpha  v}{u+v}+u-1\right)=0,\\
-   \beta  v \left(\frac{\gamma  v}{\delta +u}-1\right)=0.\\
+   \dot{u} = u \left(1 - u\right) - \frac{\alpha  u  v}{u+v},\\
+   \dot{v} = \beta  v \left(1 - \gamma  \frac{v}{u + \delta}\right).\\
 \end{aligned}
 \right. $$
 
@@ -15,12 +15,54 @@ $\left ( 1, 0 \right )$
 
 А также пары с большими значениями:
 
-$\left ( \frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}+\alpha -\gamma  +\delta  -1}{2 (\gamma  +1)}, \frac{-\sqrt{\alpha ^2-2 \alpha  (2  \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +2 \gamma  \delta +\gamma +\delta +1}{2 \gamma  (\gamma +1)} \right )$ 
+\[ \begin{aligned}
+\Bigl ( &\frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}+\alpha -\gamma  +\delta  -1}{2 (\gamma  +1)},\\
+&\frac{-\sqrt{\alpha ^2-2 \alpha  (2  \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +2 \gamma  \delta +\gamma +\delta +1}{2 \gamma  (\gamma +1)} \Bigr ) 
+\end{aligned} \]
 
 и
 
-$\left ( \frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +\gamma -\delta +1}{2 (\gamma +1)}, \frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +2 \gamma \delta +\gamma +\delta +1}{2 \gamma  (\gamma +1)} \right )$ 
+\[ \begin{aligned}
+\Bigl ( &\frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +\gamma -\delta +1}{2 (\gamma +1)},\\ &\frac{\sqrt{\alpha ^2-2 \alpha  (2 \gamma  \delta +\gamma +\delta +1)+(\gamma +\delta +1)^2}-\alpha +2 \gamma \delta +\gamma +\delta +1}{2 \gamma  (\gamma +1)} \Bigr ) 
+\end{aligned} \]
 
+Для простоты решения мы не будем работать с большими числами, а выберем пару $\left ( 0, \frac{\delta }{\gamma} \right )$. Мы выбираем ее, так как в ней присутствует два параметра системы, в отличие от пары $\left ( 1, 0 \right )$. 
+
+Дальше нам необходимо сделать сдвиг системы на выбранное положение равновесия. Где у нас $u$ заменялся на $0 + u_1$, а $v$ на $\frac{\delta }{\gamma} + v_1$. Мы получим систему:
+
+$ \left\{
+\begin{aligned}
+	&\dot{u_1} = \frac{\alpha  \gamma  u_1^2}{\delta +\gamma  (u_1+v_1)}-u_1 (\alpha +u_1-1),\\
+	&\dot{v_1} = \frac{\beta  (u_1-\gamma  v_1) (\delta +\gamma  v_1)}{\gamma (\delta +u_1)}.\\
+\end{aligned}
+\right. $
+
+Линеаризовав нашу систему мы поличили матрицу:
+
+$\left(
+\begin{array}{cc}
+ 1-\alpha  & 0 \\
+ \frac{\beta }{\gamma } & -\beta  \\
+\end{array}
+\right)$
+
+Найдем собвстенные значения матрицы и получим: 
+$\lambda_1 = 1-\alpha $ и $\lambda_2 = -\beta$ 
+
+Далее к каждому значению $\lambda$ найдем собственный вектор $\vec{v}$
+
+$\vec{v_1} = \left(
+\begin{array}{c}
+ \gamma  \\
+ 1 \\
+\end{array}
+\right)$, а 
+$\vec{v_2} = \left(
+\begin{array}{c}
+ 0  \\
+ 1 \\
+\end{array}
+\right)$
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-PDF-mode: t
